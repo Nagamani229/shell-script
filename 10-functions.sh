@@ -19,7 +19,7 @@ else
     echo "you are root user"
 fi
 
-yum install MYSQL -y
+yum install mysql -y
 
 VALIDATE $? "installing MYSQL"
 
