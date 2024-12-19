@@ -7,7 +7,7 @@ Y="\e[33m"
 N="\e[0m"
 
 TIMESTAMP=$(date +F%-%H-%M-%S)
-LOGFILE=LOGFILE="/tmp/$0-$TIMESTAMP.log"
+LOGFILE="/tmp/$0-$TIMESTAMP.log"
 
 echo "script started executing at $TIMESTAMP" &>> $LOGFILE
 
@@ -40,4 +40,5 @@ do
     else
         echo -e "$package is already installed ....$Y skipping $N"
     fi
+
 done
