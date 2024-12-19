@@ -29,6 +29,7 @@ else
 fi
 
 #echo "All args passed: $@"
+#git mysql postfix net-tools
 
 for $package in $@
 do 
