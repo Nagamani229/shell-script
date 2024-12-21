@@ -29,7 +29,6 @@ if [ -z "$NAME" ]
   echo "ERROR: -n is mandatory"
   USAGE
   exit 1
-
 fi
 
  echo "Hello $NAME. $WISHES. I have been learning shell script"
