@@ -1,5 +1,5 @@
 #!/bin/bash
-FILE=/etc/passwd
+FILE=file.txt
 NAME=("Ryan" "mani" "prudhvi")
 AGE=("21 "26 "27")
 
