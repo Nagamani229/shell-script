@@ -1,21 +1,17 @@
 #!/bin/bash
 
-# Input and output files
-input_file="file.txt"
-output_file="transposed_file.txt"
+read -p "Enter File Name:" fileName
 
-# Transpose the file and save to the output file
-awk '
-{
-    for (i=1; i<=NF; i++) {
-        a[i] = (a[i] ? a[i] " " : "") $i
-    }
-}
-END {
-    for (i=1; i<=length(a); i++) {
-        print a[i]
-    }
-}
-' "$input_file" > "$output_file"
+if ([ -e $fileName ])
+then
+if ([ -w $fileName ])
+then
+echo "Enter some text!! to exit press ctrl+d"
+cat >> $fileName
 
-echo "Transposition complete. Output saved to $output_file"
+else
+echo "$fileName does not have write permission"
+fi
+else
+echo "$fileName does not exist"
+fi
