@@ -1,13 +1,21 @@
 #!/bin/bash
-file="file1.txt"
-name=(ryan, mani,prudhvi)
-ages=(26,27,28)
+file=/etc/passwd
+NAME=("Ryan" "mani" "prudhvi")
+AGE=("21 "26 "27")
 
-while IFS= read -r line; do
-words=($line)
-name+=(${words[0]})
-ages+=(${words[1]})
-done <"$file"
+R="\e[31m"
+G="\e[32m"
+Y="\e[33m"
+N="\e[0m"
 
-echo "${name[]}"
-echo "${ages[]}"
+if [ ! -f $FILE]
+then 
+    echo -e "$R $FILE: $FILE does not exists. $N"
+fi
+
+while IFS= ":" read -r name age file 
+do
+   echo "name: $NAME"
+   echo "age: $AGE"
+   echo "file: $FILE"
+done < $FILE
