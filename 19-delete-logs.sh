@@ -34,7 +34,7 @@ while getopts ":s:d:t:m;a:h" opt; do
 done
 
 
-if [ -z $ACTION ];
+if [ -z "$ACTION" ];
 then
    echo "ERROR:: -a option is mandatory. Either delete or archive"
    exit 1
@@ -44,11 +44,13 @@ then
     echo "ERROR:: -d option is mandatory when -a is archive"
     exit 1
 fi
+mkdir -p /tmp/shellscript-logs
 
 if [ ! -d $SOURCE_DIR ] # ! denotes opposite
 then
     echo "Source directory: $SOURCE_DIR does not exists."
 fi
+
 if [ $ACTION == "delete" ]; then
  FILES-TO_DELETE=$(find $SOURCE_DIR -type f -mtime +14 -name "*.log")
 fi
@@ -58,7 +60,7 @@ do
     echo "Deleting file: $line"
     rm -rf $line
 done <<< $FILES_TO_DELETE
-else
+
 FILES_TO_ARCHIVE=$(find $SOURCE_DIR -type f -mtime +"$DAYS" -name "*.log")
 
 while IFS= read -r line
