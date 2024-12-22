@@ -1,19 +1,6 @@
 #!/bin/bash
-
-# Make sure file.txt exists and is a regular file
-if [ -f example.txt ]; then
-    awk '
-    {
-        for (i = 1; i <= NF; i++) {
-            arr[i] = arr[i] $i " "
-        }
-    }
-    END {
-        for (i = 1; i in arr; i++) {
-            print arr[i]
-        }
-    }
-    ' file.txt
-else
-    echo "file.txt is not a valid file."
-fi
+input_file="$1"
+num_cols=$(head -1 "$input_file" | wc -w)
+for i in $(seq 1 "$num_cols"); do
+echo $(cut -d ' ' -f "$i" "$input_file")
+done
