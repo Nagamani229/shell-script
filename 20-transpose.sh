@@ -1,7 +1,7 @@
 #!/bin/bash
 FILE=file.txt
 NAME=("Ryan" "mani" "prudhvi")
-AGE=("21 "26 "27")
+AGE=("21" "26" "27")
 
 R="\e[31m"
 G="\e[32m"
