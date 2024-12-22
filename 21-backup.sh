@@ -9,7 +9,7 @@ read Source directory
 echo "Please enter the destination directory to save .tar.gz file: "    
 read Destination directory                                                                                        
                                                     
-folder=$(echo "$SOURCE_DIR"| awk -F / '{print $NF}')                                    
+folder=$(echo "$SOURCE_DIR"| awk -f / '{print $NF}')                                    
 gzfile="$folder-$TIMESTAMP.tar.gz"                                            
 cd $SOURCE_DIR
 cd ..
