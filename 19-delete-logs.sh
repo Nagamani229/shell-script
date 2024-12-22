@@ -51,7 +51,7 @@ then
     echo "Source directory: $SOURCE_DIR does not exists."
 fi
 
-if [ $ACTION == "delete" ]; then
+if [ "$ACTION" == "delete" ]; then
  FILES-TO_DELETE=$(find $SOURCE_DIR -type f -mtime +14 -name "*.log")
 fi
 
