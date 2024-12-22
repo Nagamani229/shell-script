@@ -1,22 +1,21 @@
 #!/bin/bash
-FILE=file.txt
-NAME=("Ryan" "mani" "prudhvi")
-AGE=("21" "26" "27")
 
-R="\e[31m"
-G="\e[32m"
-Y="\e[33m"
-N="\e[0m"
+# Input and output files
+input_file="file.txt"
+output_file="transposed_file.txt"
 
-if [ ! -f "$FILE"];
-mkdir file.txt
-then 
-    echo -e "$R $FILE: $FILE does not exists. $N"
-fi
+# Transpose the file and save to the output file
+awk '
+{
+    for (i=1; i<=NF; i++) {
+        a[i] = (a[i] ? a[i] " " : "") $i
+    }
+}
+END {
+    for (i=1; i<=length(a); i++) {
+        print a[i]
+    }
+}
+' "$input_file" > "$output_file"
 
-while IFS= ":" read -r name age file 
-do
-   echo "name: $NAME"
-   echo "age: $AGE"
-   echo "file: $FILE"
-done < $FILE
+echo "Transposition complete. Output saved to $output_file
