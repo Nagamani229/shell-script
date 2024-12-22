@@ -1,8 +1,8 @@
 #!/bin/bash
 
-FILE_NAME=$1
-AGE=""
-NAME=""
+FILE_NAME=file1.txt
+AGE="ryan"
+NAME="26"
 
 while IFS= read -r line; 
 do
@@ -11,5 +11,5 @@ name+=(${words[0]})
 age+=(${words[1]})
 done <"$FILE_NAME"
 
-echo "${name[]}"
-echo "${age[]}"
+echo "${$NAME[]}"
+echo "${$AGE[]}"
