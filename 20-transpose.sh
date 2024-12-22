@@ -8,7 +8,7 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
-if [ ! -f $FILE]
+if [ ! -f "$FILE"]
 then 
     echo -e "$R $FILE: $FILE does not exists. $N"
 fi
