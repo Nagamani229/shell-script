@@ -1,17 +1,15 @@
 #!/bin/bash
 
-FILE_NAME=$1
-AGE="ryan"
-NAME="26"
-
-touch file 1.txt
-
-while IFS= read -r line; 
-do
-words=($line)
-name+=(${words[0]})
-age+=(${words[1]})
-done <"$FILE_NAME"
-
-echo "${$NAME[0]}"
-echo "${$AGE[1]}"
+# Transpose the file content
+awk '
+{
+    for (i = 1; i <= NF; i++) {
+        arr[i] = arr[i] $i " "
+    }
+}
+END {
+    for (i = 1; i in arr; i++) {
+        print arr[i]
+    }
+}
+' file.txt
