@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Make sure file.txt exists and is a regular file
-if [ -f file.txt ]; then
+if [ -f example.txt ]; then
     awk '
     {
         for (i = 1; i <= NF; i++) {
